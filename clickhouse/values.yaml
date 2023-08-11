@@ -56,8 +56,8 @@ clickhouse:
   ## The instance number of Clickhouse
   replicas: "3"
   ## Clickhouse image configuration.
-  image: "yandex/clickhouse-server"
-  imageVersion: "19.14"
+  image: "clickhouse/clickhouse-server"
+  imageVersion: "23.3"
   imagePullPolicy: "IfNotPresent"
   #imagePullSecrets: 
   ## Periodic probe of container liveness. Container will be restarted if the probe fails. Cannot be updated. 
@@ -258,13 +258,14 @@ clickhouse:
     ## The users section of the user.xml configuration file contains user settings.
     ## More info: https://clickhouse.yandex/docs/en/operations/settings/settings_users/
     users: 
-      enabled: false
+      enabled: true
       user: 
       - name: "default"
         config:
-          #password: ""
+          # password: ""
           networks: 
           - "::/0"
+          - "10.245.0.0/16"
           profile: "default"
           quota: "default"
     ##

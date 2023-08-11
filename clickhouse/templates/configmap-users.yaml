@@ -10,7 +10,7 @@ metadata:
 data:
   users.xml: |-
     <?xml version="1.0"?>
-    <yandex>
+    <clickhouse>
     {{- if .Values.clickhouse.configmap.profiles.enabled }}
         <profiles>
         {{- range .Values.clickhouse.configmap.profiles.profile }}
@@ -64,5 +64,5 @@ data:
         {{- end }}
         </quotas>
     {{- end }}
-    </yandex>
+    </clickhouse>
 {{- end }}
